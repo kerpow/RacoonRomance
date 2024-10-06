@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4jfgjduoluho"]
+
+[ext_resource type="Script" path="res://Scripts/light.gd" id="1_76ff2"]
+[ext_resource type="Texture2D" uid="uid://bo4pr5lwtuskd" path="res://Assets/export/house_light.png" id="1_gtknd"]
+[ext_resource type="Texture2D" uid="uid://wnjswtc0ijxd" path="res://Assets/export/light.png" id="2_j3q8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2rd4"]
+radius = 110.0
+
+[node name="House Light" type="Node2D"]
+script = ExtResource("1_76ff2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gtknd")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 9)
+scale = Vector2(1.41803, 1.78933)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("2_j3q8s")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 59)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_b2rd4")

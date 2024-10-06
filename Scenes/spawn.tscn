@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://do6iees1qxnv3"]
+
+[ext_resource type="Script" path="res://Scripts/spawn tree.gd" id="1_uhkbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lekw"]
+radius = 59.1354
+
+[node name="Spawn Tree" type="Node2D"]
+script = ExtResource("1_uhkbl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0lekw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

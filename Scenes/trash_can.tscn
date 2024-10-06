@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://3ebxog2xjvuf"]
+
+[ext_resource type="Texture2D" uid="uid://ckxw1y5dxbtml" path="res://Assets/export/trash_can.png" id="1_3knhl"]
+[ext_resource type="Script" path="res://Scripts/trash_can.gd" id="1_anby3"]
+[ext_resource type="Texture2D" uid="uid://vd25d828hg3y" path="res://Assets/export/trash_can_toppled.png" id="2_n1prm"]
+[ext_resource type="Texture2D" uid="uid://deaiostjtttlb" path="res://Assets/export/smoke.png" id="3_trmn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vm5l"]
+radius = 24.0
+
+[node name="Trash Can" type="Node2D" groups=["trash_can"]]
+position = Vector2(2669, 974)
+script = ExtResource("1_anby3")
+
+[node name="Upright" type="Sprite2D" parent="."]
+position = Vector2(-1, -18)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3knhl")
+
+[node name="Toppled" type="Sprite2D" parent="."]
+position = Vector2(-21, -12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_n1prm")
+
+[node name="Dust" type="Sprite2D" parent="."]
+self_modulate = Color(0.419813, 0.419813, 0.419813, 1)
+z_index = 100
+z_as_relative = false
+position = Vector2(-4, -13)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_trmn0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -6)
+shape = SubResource("CircleShape2D_1vm5l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

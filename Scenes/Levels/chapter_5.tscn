@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://7y8vm5ahxvh6"]
+
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="1_khtge"]
+[ext_resource type="Script" path="res://Scripts/restartbutton.gd" id="2_00bk3"]
+[ext_resource type="Texture2D" uid="uid://bhqpl8iofm8oe" path="res://Assets/export/player.png" id="4_2edbh"]
+[ext_resource type="AudioStream" uid="uid://cu8iwa67chwcc" path="res://Assets/chapter5.ogg" id="4_xwo24"]
+
+[sub_resource type="Theme" id="Theme_fui8s"]
+default_font = ExtResource("1_khtge")
+default_font_size = 50
+Button/fonts/font = ExtResource("1_khtge")
+
+[sub_resource type="Theme" id="Theme_y1ca0"]
+default_font = ExtResource("1_khtge")
+default_font_size = 50
+
+[node name="Chapter 4" type="Node2D"]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 12.0
+offset_right = 1055.0
+offset_bottom = 543.0
+theme = SubResource("Theme_fui8s")
+theme_override_font_sizes/font_size = 60
+text = "Hero listened to Love's words. Listening, as it turns out, is very important for love. 
+
+Hero pushed the shiny things to the side and said, \"I think I rummaged through some brussle sprouts. Maybe now I smell like little old cabbage.\"
+
+Love laughed and they lived happily ever after."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 481.0
+offset_top = 548.0
+offset_right = 652.0
+offset_bottom = 609.0
+theme = SubResource("Theme_y1ca0")
+text = "Play Again"
+script = ExtResource("2_00bk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(963.738, 404.62)
+rotation = -0.21817
+scale = Vector2(-2, 2)
+texture = ExtResource("4_2edbh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1058.74, 404.62)
+rotation = 0.318039
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("4_2edbh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xwo24")
+autoplay = true

@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://ul5wt7td2jvk"]
+
+[ext_resource type="Texture2D" uid="uid://br6d31p56rrrv" path="res://Assets/export/huma_body.png" id="1_a8ib1"]
+[ext_resource type="Script" path="res://Scripts/human.gd" id="1_f4wei"]
+[ext_resource type="Texture2D" uid="uid://c1qr57vhiq18l" path="res://Assets/export/human_head.png" id="2_m31fr"]
+[ext_resource type="Texture2D" uid="uid://bbvdyo5f2xcs" path="res://Assets/export/light2.png" id="4_dls2w"]
+[ext_resource type="Texture2D" uid="uid://clcocmk57one7" path="res://Assets/export/alert.png" id="5_3kboi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ma3o"]
+height = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tkgm"]
+radius = 199.019
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uq6u0"]
+radius = 45.0111
+
+[node name="Human" type="CharacterBody2D"]
+z_index = 20
+position = Vector2(439, 455)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_f4wei")
+
+[node name="Body" type="Sprite2D" parent="."]
+modulate = Color(0.27451, 0.666667, 1, 1)
+position = Vector2(1.5, -11)
+scale = Vector2(1, 0.69697)
+texture = ExtResource("1_a8ib1")
+
+[node name="Head" type="Sprite2D" parent="."]
+modulate = Color(1, 0.717647, 0.423529, 1)
+position = Vector2(1.19209e-07, -42)
+scale = Vector2(0.878378, 0.894737)
+texture = ExtResource("2_m31fr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_8ma3o")
+
+[node name="Vision" type="Node2D" parent="."]
+position = Vector2(204, -52)
+rotation = -0.630842
+scale = Vector2(1.005, 1.005)
+
+[node name="Area2D" type="Area2D" parent="Vision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision/Area2D"]
+shape = SubResource("CircleShape2D_1tkgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Vision"]
+visible = false
+modulate = Color(0.748567, 0.740311, 0.729057, 0.768627)
+scale = Vector2(1.4005, 1.39546)
+texture = ExtResource("4_dls2w")
+
+[node name="VisionAlert" type="Node2D" parent="."]
+position = Vector2(389, -67)
+rotation = -0.630842
+scale = Vector2(2, 2)
+
+[node name="Area2D" type="Area2D" parent="VisionAlert"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionAlert/Area2D"]
+position = Vector2(8.7107, 0.789795)
+shape = SubResource("CircleShape2D_1tkgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="VisionAlert"]
+visible = false
+modulate = Color(0.748567, 0.740311, 0.729057, 0.768627)
+scale = Vector2(1.4005, 1.39546)
+texture = ExtResource("4_dls2w")
+
+[node name="Alert Icon" type="Node2D" parent="."]
+position = Vector2(9, -131)
+
+[node name="Sprite2D" type="Sprite2D" parent="Alert Icon"]
+texture = ExtResource("5_3kboi")
+
+[node name="Capture Area2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Capture Area2d"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_uq6u0")
+
+[connection signal="body_entered" from="Vision/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="VisionAlert/Area2D" to="." method="_on_area_2d_body_entered_alert"]
+[connection signal="body_entered" from="Capture Area2d" to="." method="_on_capture_area_2d_body_entered"]

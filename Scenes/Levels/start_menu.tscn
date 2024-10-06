@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://da1qr5466rje4"]
+
+[ext_resource type="Texture2D" uid="uid://bhqpl8iofm8oe" path="res://Assets/export/player.png" id="1_bskuj"]
+[ext_resource type="Texture2D" uid="uid://vd25d828hg3y" path="res://Assets/export/trash_can_toppled.png" id="2_5uckr"]
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="3_p00vy"]
+[ext_resource type="Script" path="res://Scripts/next_level_button.gd" id="4_ymdqu"]
+[ext_resource type="AudioStream" uid="uid://w4ryw3evgurk" path="res://Assets/sneaky sneaky racoon.ogg" id="5_7sqxy"]
+
+[node name="Start Menu" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(795, 512)
+scale = Vector2(-2, 2)
+texture = ExtResource("1_bskuj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(944, 491)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5uckr")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 140.0
+offset_top = 222.0
+offset_right = 525.0
+offset_bottom = 409.0
+theme_override_fonts/font = ExtResource("3_p00vy")
+theme_override_font_sizes/font_size = 100
+text = "Begin"
+script = ExtResource("4_ymdqu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7sqxy")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 732.0
+offset_top = 41.0
+offset_right = 1103.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("3_p00vy")
+theme_override_font_sizes/font_size = 40
+text = "Move - WASD or Arrow Keys
+Sprint - Shift
+Rummage - Space"

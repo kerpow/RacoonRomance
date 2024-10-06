@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://xr6dq3yhtpix"]
+
+[ext_resource type="Script" path="res://Scripts/level_ui.gd" id="1_g522w"]
+[ext_resource type="Texture2D" uid="uid://b8pa7cdqm4cet" path="res://Assets/export/stamina.png" id="1_gcm0y"]
+[ext_resource type="Script" path="res://Scripts/stamina_ui.gd" id="2_udpky"]
+[ext_resource type="Script" path="res://Scripts/rummage_ui.gd" id="3_5sc4q"]
+[ext_resource type="Script" path="res://Scripts/shinysUI.gd" id="4_0h0q2"]
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="5_jecbf"]
+[ext_resource type="Script" path="res://Scripts/objectiveui.gd" id="5_stb5y"]
+[ext_resource type="Texture2D" uid="uid://slayj6xbftrp" path="res://Assets/export/restart.png" id="6_vjjow"]
+[ext_resource type="Script" path="res://Scripts/buttonui.gd" id="7_8qb34"]
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_g522w")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 100.0
+offset_bottom = 108.0
+rotation = -0.153424
+step = 0.05
+value = 35.0
+fill_mode = 5
+texture_under = ExtResource("1_gcm0y")
+texture_progress = ExtResource("1_gcm0y")
+tint_under = Color(0.67069, 0.67069, 0.67069, 1)
+tint_progress = Color(1, 0.796078, 0, 1)
+script = ExtResource("2_udpky")
+
+[node name="RummageUI2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 131.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_5sc4q")
+moving_color_good = Color(0.768627, 0.686275, 0.247059, 1)
+
+[node name="OverallProgress" type="TextureProgressBar" parent="RummageUI2"]
+layout_mode = 0
+offset_left = -86.0
+offset_top = -70.0
+offset_right = -2.0
+offset_bottom = 6.0
+scale = Vector2(2.2, 2.2)
+step = 0.01
+value = 66.0
+fill_mode = 3
+texture_under = ExtResource("1_gcm0y")
+texture_progress = ExtResource("1_gcm0y")
+tint_progress = Color(0, 0, 0, 1)
+
+[node name="TargetProgress" type="TextureProgressBar" parent="RummageUI2"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = -62.0
+offset_right = 8.0
+offset_bottom = 14.0
+scale = Vector2(2, 2)
+value = 88.0
+fill_mode = 8
+texture_under = ExtResource("1_gcm0y")
+texture_progress = ExtResource("1_gcm0y")
+tint_progress = Color(0.617251, 0.639964, 0.634428, 1)
+
+[node name="MovingProgress" type="TextureProgressBar" parent="RummageUI2"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = -62.0
+offset_right = 8.0
+offset_bottom = 14.0
+scale = Vector2(2, 2)
+value = 68.0
+fill_mode = 8
+texture_progress = ExtResource("1_gcm0y")
+tint_progress = Color(0.095389, 0.0343112, 0.0047671, 1)
+
+[node name="Label" type="Label" parent="RummageUI2"]
+layout_mode = 0
+offset_left = -135.0
+offset_top = 99.0
+offset_right = 162.0
+offset_bottom = 122.0
+text = "Press [Space] when gold  to rummage.
+Success is tracked with the outline"
+horizontal_alignment = 1
+
+[node name="Shinys" type="Label" parent="."]
+offset_left = 883.0
+offset_top = 28.0
+offset_right = 1136.0
+offset_bottom = 70.0
+rotation = 0.226547
+theme_override_fonts/font = ExtResource("5_jecbf")
+theme_override_font_sizes/font_size = 40
+text = "Shiny Things 0 / 5"
+script = ExtResource("4_0h0q2")
+
+[node name="Objective" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 458.0
+offset_right = 436.0
+offset_bottom = 511.0
+rotation = -0.144783
+pivot_offset = Vector2(200, 25)
+theme_override_fonts/font = ExtResource("5_jecbf")
+theme_override_font_sizes/font_size = 50
+text = "Rummage trash cans"
+horizontal_alignment = 1
+script = ExtResource("5_stb5y")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -95.0
+offset_right = 96.0
+offset_bottom = 1.0
+grow_vertical = 0
+icon = ExtResource("6_vjjow")
+flat = true
+icon_alignment = 1
+script = ExtResource("7_8qb34")

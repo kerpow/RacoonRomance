@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://5qbbh2ve3lei"]
+
+[ext_resource type="Script" path="res://Scripts/level_sound.gd" id="1_i82jd"]
+[ext_resource type="AudioStream" uid="uid://w4ryw3evgurk" path="res://Assets/sneaky sneaky racoon.ogg" id="2_evv74"]
+[ext_resource type="AudioStream" uid="uid://c0bdjlyeb6fa7" path="res://Assets/racoon run.ogg" id="3_otu1p"]
+[ext_resource type="AudioStream" uid="uid://bcjo5tds6n8j3" path="res://Assets/rummage trash.ogg" id="4_fl0h7"]
+[ext_resource type="AudioStream" uid="uid://ceedjduawcv1n" path="res://Assets/alarm.ogg" id="5_jr8we"]
+
+[node name="LevelSound" type="Node2D"]
+script = ExtResource("1_i82jd")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_evv74")
+parameters/looping = true
+
+[node name="Run" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_otu1p")
+parameters/looping = true
+
+[node name="Rummage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fl0h7")
+volume_db = -11.979
+parameters/looping = true
+
+[node name="Alert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jr8we")
+parameters/looping = true

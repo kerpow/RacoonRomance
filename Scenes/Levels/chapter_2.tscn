@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://dian0gq2qi60h"]
+
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="1_4s5no"]
+[ext_resource type="Script" path="res://Scripts/next_level_button.gd" id="2_vn3rv"]
+[ext_resource type="Texture2D" uid="uid://jkmd6wylhyiy" path="res://Assets/export/shiny_thing.png" id="3_qb7fi"]
+[ext_resource type="Texture2D" uid="uid://bhqpl8iofm8oe" path="res://Assets/export/player.png" id="4_pp3mv"]
+[ext_resource type="AudioStream" uid="uid://bcrg01n3akfnh" path="res://Assets/chapter2.ogg" id="5_nj2wn"]
+
+[sub_resource type="Theme" id="Theme_fui8s"]
+default_font = ExtResource("1_4s5no")
+default_font_size = 50
+Button/fonts/font = ExtResource("1_4s5no")
+
+[sub_resource type="Theme" id="Theme_y1ca0"]
+default_font = ExtResource("1_4s5no")
+default_font_size = 50
+
+[node name="Chapter 1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 37.0
+offset_right = 1062.0
+offset_bottom = 349.0
+theme = SubResource("Theme_fui8s")
+text = "Hero gathered up his shiny things in a pile. 
+
+\"This doesn't look very impressive\", Hero thought to himself. \"I need more if I want Love to notice me.\"
+
+Hero went off to another neighborhood. Hoping to find the perfect shiny things."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 71.0
+offset_top = 523.0
+offset_right = 195.0
+offset_bottom = 584.0
+theme = SubResource("Theme_y1ca0")
+text = "Next"
+script = ExtResource("2_vn3rv")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(926, 561)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("3_qb7fi")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(879, 561)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("3_qb7fi")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(895, 539)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("3_qb7fi")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(834, 570)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("3_qb7fi")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(906, 557)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("3_qb7fi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1010, 518)
+scale = Vector2(2, 2)
+texture = ExtResource("4_pp3mv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nj2wn")
+autoplay = true

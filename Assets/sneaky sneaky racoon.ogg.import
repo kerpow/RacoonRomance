@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://w4ryw3evgurk"
+path="res://.godot/imported/sneaky sneaky racoon.ogg-83c2920a5c952880aab6c0dccf399fff.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sneaky sneaky racoon.ogg"
+dest_files=["res://.godot/imported/sneaky sneaky racoon.ogg-83c2920a5c952880aab6c0dccf399fff.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

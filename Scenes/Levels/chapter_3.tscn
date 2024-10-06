@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://sel8vqpc60b3"]
+
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="1_72vpo"]
+[ext_resource type="Script" path="res://Scripts/next_level_button.gd" id="2_axlk3"]
+[ext_resource type="Texture2D" uid="uid://jkmd6wylhyiy" path="res://Assets/export/shiny_thing.png" id="3_kwadc"]
+[ext_resource type="Texture2D" uid="uid://bhqpl8iofm8oe" path="res://Assets/export/player.png" id="4_2s5jk"]
+[ext_resource type="Texture2D" uid="uid://b2avd6hawgjga" path="res://Assets/export/tree.png" id="4_ymyda"]
+[ext_resource type="AudioStream" uid="uid://c5ru5au78vc0s" path="res://Assets/chapter3.ogg" id="6_jxwkg"]
+
+[sub_resource type="Theme" id="Theme_fui8s"]
+default_font = ExtResource("1_72vpo")
+default_font_size = 50
+Button/fonts/font = ExtResource("1_72vpo")
+
+[sub_resource type="Theme" id="Theme_y1ca0"]
+default_font = ExtResource("1_72vpo")
+default_font_size = 50
+
+[node name="Chapter 3" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 37.0
+offset_right = 796.0
+offset_bottom = 486.0
+theme = SubResource("Theme_fui8s")
+text = "Hero's heart sank as he saw discarded shiny things all around the base of Love's tree.
+
+\"Love doesn't want a bunch of shiny things. Love wants really good shiny things.\"
+
+Off again Hero went, looking for more shiny things
+"
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 71.0
+offset_top = 523.0
+offset_right = 195.0
+offset_bottom = 584.0
+theme = SubResource("Theme_y1ca0")
+text = "Next"
+script = ExtResource("2_axlk3")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(940, 534)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="tree" type="Sprite2D" parent="."]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+position = Vector2(954, 298)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("4_ymyda")
+
+[node name="racoon" type="Sprite2D" parent="."]
+position = Vector2(425, 571)
+scale = Vector2(-2, 2)
+texture = ExtResource("4_2s5jk")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(918, 548)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(953, 563)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(982, 559)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(1017, 581)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(1065, 588)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(943, 572)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(1108, 583)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_kwadc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jxwkg")
+autoplay = true

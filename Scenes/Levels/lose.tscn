@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj5cl8gfmiygg"]
+
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="1_sjev1"]
+[ext_resource type="Script" path="res://Scripts/buttonui.gd" id="3_yt4yj"]
+[ext_resource type="Texture2D" uid="uid://bhqpl8iofm8oe" path="res://Assets/export/player.png" id="4_wppdb"]
+
+[sub_resource type="Theme" id="Theme_fui8s"]
+default_font = ExtResource("1_sjev1")
+default_font_size = 50
+Button/fonts/font = ExtResource("1_sjev1")
+
+[sub_resource type="Animation" id="Animation_40i04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-102, 131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_jg2f3"]
+resource_name = "run away"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.06667, 4.2, 6.03333, 7.83333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-102, 131), Vector2(401, 148), Vector2(178, 360), Vector2(843, 195), Vector2(542, 517), Vector2(1272, 429)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.06667, 2.16667, 4.2, 4.3, 6.03333, 6.16667, 7.83333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, 2), Vector2(-2, 2), Vector2(2, 2), Vector2(2, 2), Vector2(-2, 2), Vector2(-2, 2), Vector2(2, 2), Vector2(2, 2), Vector2(-2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_12ib2"]
+_data = {
+"RESET": SubResource("Animation_40i04"),
+"run away": SubResource("Animation_jg2f3")
+}
+
+[node name="Lose" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-102, 131)
+scale = Vector2(-2, 2)
+texture = ExtResource("4_wppdb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 139.0
+offset_top = 177.0
+offset_right = 946.0
+offset_bottom = 361.0
+theme = SubResource("Theme_fui8s")
+text = "A human grabbed your shiny things as you scamper away."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_12ib2")
+}
+speed_scale = 3.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 464.0
+offset_top = 313.0
+offset_right = 636.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("1_sjev1")
+theme_override_font_sizes/font_size = 50
+text = "Try Again"
+script = ExtResource("3_yt4yj")

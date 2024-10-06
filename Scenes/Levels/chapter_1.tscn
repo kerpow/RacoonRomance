@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxeoffut8568k"]
+
+[ext_resource type="FontFile" uid="uid://di5qtff45ix4a" path="res://Assets/goingtodogreatthings.ttf" id="1_3y4fo"]
+[ext_resource type="Script" path="res://Scripts/next_level_button.gd" id="2_5kw1j"]
+[ext_resource type="Texture2D" uid="uid://vd25d828hg3y" path="res://Assets/export/trash_can_toppled.png" id="3_spuol"]
+[ext_resource type="Texture2D" uid="uid://bhqpl8iofm8oe" path="res://Assets/export/player.png" id="4_lcgvh"]
+[ext_resource type="AudioStream" uid="uid://d2y8ea7a8aq6f" path="res://Assets/chapter1.ogg" id="5_uee3u"]
+
+[sub_resource type="Theme" id="Theme_fui8s"]
+default_font = ExtResource("1_3y4fo")
+default_font_size = 50
+Button/fonts/font = ExtResource("1_3y4fo")
+
+[sub_resource type="Theme" id="Theme_y1ca0"]
+default_font = ExtResource("1_3y4fo")
+default_font_size = 50
+
+[node name="Chapter 1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 37.0
+offset_right = 876.0
+offset_bottom = 349.0
+theme = SubResource("Theme_fui8s")
+text = "Once upon a time a young racooon named Hero was looking for food.
+
+What he found was Love. Love was, lovely, and smelled of trash, which is very good for a racoon.
+
+\"Love won't like me as I am\", Hero thought. I need  shiny things to get their attention."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 71.0
+offset_top = 523.0
+offset_right = 195.0
+offset_bottom = 584.0
+theme = SubResource("Theme_y1ca0")
+text = "Next"
+script = ExtResource("2_5kw1j")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+position = Vector2(888, 512)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("3_spuol")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(781, 563)
+scale = Vector2(-2, 2)
+texture = ExtResource("4_lcgvh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1042, 549)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("4_lcgvh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uee3u")
+autoplay = true

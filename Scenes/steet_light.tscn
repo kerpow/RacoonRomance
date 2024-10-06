@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://y1gg6kmbhuqc"]
+
+[ext_resource type="Script" path="res://Scripts/light.gd" id="1_nqmwe"]
+[ext_resource type="Texture2D" uid="uid://wnjswtc0ijxd" path="res://Assets/export/light.png" id="2_2eeoc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yojn"]
+radius = 83.0
+height = 332.0
+
+[node name="Steet Light" type="Node2D"]
+script = ExtResource("1_nqmwe")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.82885, 1.01885)
+energy = 0.8
+texture = ExtResource("2_2eeoc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4yojn")
